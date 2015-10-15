@@ -13,5 +13,33 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return View::make('login');
+});
+
+Route::get('/login', function()
+{
+	return View::make('login');
+});
+Route::get('/register', function()
+{
+	return View::make('register');
+});
+
+Route::get('/resetpassword', function()
+{
+	return View::make('forget');
+});
+Route::get('/forgot-password', function()
+{
+	return View::make('forget');
+});
+
+Route::get('/confirm-registration', function()
+{
+	return View::make('confirm-registration');
+});
+
+Route::get('/resit', function()
+{
+	return View::make('resit');
 });

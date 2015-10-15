@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-  <meta name="description" content="bootstrap admin template">
+  <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Login | Lands</title>
+  <title>Confirm  Registration | Lands</title>
 
   <link rel="apple-touch-icon" href="../../assets/images/apple-touch-icon.png">
   <link rel="shortcut icon" href="../../assets/images/favicon.ico">
@@ -66,29 +66,19 @@
         <img class="brand-img" src="../assets/images/logo.png" alt="...">
         <h2 class="brand-text">Lands Commission</h2>
       </div>
-              <form method="post" action="login.html">
-        
-        <div class="form-group">
-          <label class="sr-only" for="inputEmail">Email</label>
-          <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email">
-        </div>
-        <div class="form-group">
-          <label class="sr-only" for="inputPassword">Password</label>
-          <input type="password" class="form-control" id="inputPassword" name="password"
-          placeholder="Password">
-        </div>
-        <div class="form-group clearfix">
-          <div class="checkbox-custom checkbox-inline pull-left">
-            <input type="checkbox" id="inputCheckbox" name="checkbox">
-            <label for="inputCheckbox">Remember me</label>
-          </div>
-          <a class="pull-right" href="forgot-password.html">Forgot password?</a>
-        </div>
-        <button type="submit" class="btn btn-primary pull-right">Login</button>
-      </form>
+                
+               <form>
+                  <div class="forgot-password">
+                  <h4>Thanks for Registering</h4>
+                <p>An email had been sent to you.  Please follow the instructions and complete the
+rest of the process.<p>
+                  </div>
+       </form>
             </div>
-            <div class="panel-footer"><p>Don’t have an account?</p>
-            <a href="register.html" class="btn btn-primary ">Create Account</a></div>
+               <div class="panel-footer">
+                   <p>Already have an account?</p>
+            <a href="login.html" class="btn btn-primary ">Login</a>
+               </div>
           </div>
       
       
