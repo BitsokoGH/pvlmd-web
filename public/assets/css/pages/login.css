@@ -1,0 +1,54 @@
+.page-login {
+  color: #666666;
+}
+.page-login:before {
+  position: fixed;
+  top: 0;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 100%;
+  
+}
+.page-login:after {
+  position: fixed;
+  top: 0;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-color:#ddd;
+  z-index: -1;
+}
+.page-login .brand {
+  margin-bottom: 28px;
+}
+.page-login .brand-text {
+  color: #666666;
+  font-size: 18px;
+  
+}
+.page-login form {
+  width: 340px;
+  margin: 30px 0;
+}
+.page-login form a {
+  margin-left: 20px;
+  color: #4A90E2;
+}
+.page-login .page-copyright {
+  color: #666666;
+}
+.page-login .forgot-password{text-align:left; margin:15px 0px}
+.page-login .panel-footer{background-color:#EEEEEE; border-top: 1px solid #9B9B9B;}
+.page-login .panel{border: 1px solid #9B9B9B;}
+.page-login .page-copyright .social .icon,
+.page-login .page-copyright .social .icon:hover,
+.page-login .page-copyright .social .icon:active {
+  color: #4A90E2;
+}
+@media (max-width: 480px) {
+  .page-login form {
+    width: auto;
+  }
+}
