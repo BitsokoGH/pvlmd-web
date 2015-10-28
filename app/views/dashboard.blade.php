@@ -1,12 +1,10 @@
-@extends('layout.noauth')
+@extends('layout.default')
 
 @section('title')
-Forgotten Password
+Welcome  {{$user->lastname}} {{$user->firstname}}
 @stop
 
 @section('content')
-
-  
   <!-- Page -->
   <div class="page animsition vertical-align text-center" data-animsition-in="fade-in"
   data-animsition-out="fade-out">>
@@ -18,25 +16,15 @@ Forgotten Password
         <h2 class="brand-text">Lands Commission</h2>
       </div>
                 
-              <form method="post" role="form">
+               <form>
                   <div class="forgot-password">
-                  <h4>Forgot Password ?</h4>
-                  @include('msg')
-                <p>Enter your email address or phone number and we'll send you instructions.</p>
+                  <h4>Welcome {{$user->firstname}} {{$user->lastname}}</h4>
+                <p>You have just login watch for more exciting things {{$user->role}}<p>
                   </div>
-        <div class="form-group">
-          <input type="text" class="form-control" id="inputEmail" name="username" placeholder="Email Address / Phone Number">
-        </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary pull-left ">Recover Password</button>
-        </div>
-      </form>
+       </form>
             </div>
                <div class="panel-footer">
-                   <p>Already have an account?</p>
-            <a href="{{URL::to('login')}}" class="btn btn-primary ">Login</a>
-               
-                   
+            <a href="{{URL::to('logout')}}" class="btn btn-primary ">Logout</a>
                </div>
           </div>
       
@@ -53,4 +41,5 @@ Forgotten Password
     </div>
   </div>
   <!-- End Page -->
+
 @end
