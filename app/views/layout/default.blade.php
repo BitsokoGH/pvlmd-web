@@ -14,21 +14,21 @@
         <link rel="shortcut icon" href="../../assets/images/favicon.ico">
 
         <!-- Stylesheets -->
-        {{ HTML::style('assets/css/bootstrap.min'); }}
-        {{ HTML::style('assets/css/bootstrap-extend.min'); }}
-        {{ HTML::style('assets/css/site.min'); }}
+        {{ HTML::style('assets/css/bootstrap.min.css'); }}
+        {{ HTML::style('assets/css/bootstrap-extend.min.css'); }}
+        {{ HTML::style('assets/css/site.min.css'); }}
 
-        {{ HTML::style('assets/vendor/animsition/animsition'); }}
-        {{ HTML::style('assets/vendor/asscrollable/asScrollable'); }}
-        {{ HTML::style('assets/vendor/switchery/switchery'); }}
-        {{ HTML::style('assets/vendor/intro-js/introjs'); }}
-        {{ HTML::style('assets/vendor/slidepanel/slidePanel'); }}
-        {{ HTML::style('assets/vendor/flag-icon-css/flag-icon'); }}
+        {{ HTML::style('assets/vendor/animsition/animsition.css'); }}
+        {{ HTML::style('assets/vendor/asscrollable/asScrollable.css'); }}
+        {{ HTML::style('assets/vendor/switchery/switchery.css'); }}
+        {{ HTML::style('assets/vendor/intro-js/introjs.css'); }}
+        {{ HTML::style('assets/vendor/slidepanel/slidePanel.css'); }}
+        {{ HTML::style('assets/vendor/flag-icon-css/flag-icon.css'); }}
 
 
         <!-- Fonts -->
-        {{ HTML::style('assets/fonts/web-icons/web-icons.min'); }}
-        {{ HTML::style('assets/fonts/brand-icons/brand-icons.min'); }}
+        {{ HTML::style('assets/fonts/web-icons/web-icons.min.css'); }}
+        {{ HTML::style('assets/fonts/brand-icons/brand-icons.min.css'); }}
         <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
 
 
@@ -319,7 +319,7 @@
 
 
 
-
+@yield('script')
     </body>
 
 </html>

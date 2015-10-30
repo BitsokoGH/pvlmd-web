@@ -173,5 +173,12 @@ class UserController extends BaseController {
 
         return $token->token_value;
     }
+    
+    
+    
+    public function  showProfile(){
+        
+        return View::make('user.profile', array('user' => Auth::user()));
+    }
 
 }

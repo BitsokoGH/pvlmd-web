@@ -24,6 +24,14 @@ Route::post('set-password', array('uses' => 'HomeController@doSetPassword'))->be
 Route::get('confirm-registration', array('uses' => 'HomeController@showConfirmRegistration'))->before('guest');
 Route::post('confirm-registration', array('uses' => 'HomeController@doConfirmAccount'))->before('guest');
 
+
+
+//PROFILE
+Route::get('profile', array('uses' => 'ProfileController@showProfile'))->before('guest');
+Route::resource('profile/payment', 'PaymentOptionController');
+
+Route::post('profile', array('uses' => 'HomeController@doConfirmAccount'))->before('guest');
+
 Route::match(array('GET', 'POST'),'/ok', function()
 {
     return View::make("login");
