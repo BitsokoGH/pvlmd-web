@@ -1,7 +1,7 @@
 @extends('layout.noauth')
 
 @section('title')
-Login
+Confirm Registration
 @stop
 
 @section('content')
@@ -16,11 +16,18 @@ Login
         <h2 class="brand-text">Lands Commission</h2>
       </div>
                 
-               <form>
+                <form method="post">
                   <div class="forgot-password">
-                  <h4>Thanks for Registering</h4>
-                <p>An email had been sent to you.  Please follow the instructions and complete the
-rest of the process.<p>
+                  <h4>Thanks for Registering {{$user->firstname." ".$user->lastname}}</h4>
+                  @include('msg')
+                <p>An email had been sent to you.  Please follow the instructions and complete the rest of the process. A token has been sent to your phone<p>
+                  <div class="form-group">
+                        <label class="sr-only" for="inputPhone">Phone Token</label>
+                        <input type="text" class="form-control" id="inputPhone" name="ptoken" placeholder="4 Digit Token">
+                    </div>
+                  <button type="submit" class="btn btn-primary pull-right">Confirm Password</button>
+                  <input type="hidden" name="u" value="{{$user->id}}" />
+                  <input type="hidden" name="t" value="{{$token->id}}" />
                   </div>
        </form>
             </div>
@@ -36,7 +43,7 @@ rest of the process.<p>
       
       <footer class="page-copyright">
         
-        <p>© Copyright Bitsoko 2015. All right reserved.</p>
+        <p>© Copyright Bitsoko {{date("Y")}}. All right reserved.</p>
         
         
       </footer>
