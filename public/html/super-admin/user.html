@@ -24,13 +24,40 @@
         <link rel="stylesheet" href="../../assets/vendor/slidepanel/slidePanel.css">
         <link rel="stylesheet" href="../../assets/vendor/flag-icon-css/flag-icon.css">
 
-
+      <!-- Plugin -->
+        <link rel="stylesheet" href="../../assets/vendor/datatables-bootstrap/dataTables.bootstrap.css">
+        <link rel="stylesheet" href="../../assets/vendor/datatables-fixedheader/dataTables.fixedHeader.css">
+        <link rel="stylesheet" href="../../assets/vendor/datatables-responsive/dataTables.responsive.css">
+       
+        
         <!-- Fonts -->
         <link rel="stylesheet" href="../../assets/fonts/web-icons/web-icons.min.css">
         <link rel="stylesheet" href="../../assets/fonts/brand-icons/brand-icons.min.css">
         <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,300italic'>
 
+         <style>
+            @media (max-width: 480px) {
+                .panel-actions .dataTables_length {
+                    display: none;
+                }
+            }
 
+            @media (max-width: 320px) {
+                .panel-actions .dataTables_filter {
+                    display: none;
+                }
+            }
+
+            @media (max-width: 767px) {
+                .dataTables_length {
+                    float: left;
+                }
+            }
+
+            #exampleTableAddToolbar {
+                padding-left: 30px;
+            }
+        </style>
         <!--[if lt IE 9]>
           <script src="../../assets/vendor/html5shiv/html5shiv.min.js"></script>
           <![endif]-->
@@ -226,34 +253,47 @@
                 <div>
                     <div>
                         <ul class="site-menu">
-                            <ul class="site-menu">
-                                <!-- Navigation Starts Here-->
-                                <li class="site-menu-item ">
-                                    <a href="../../html/dashboard/dashboard.html" >
-                                        <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
-                                        <span class="site-menu-title">Dashboard</span>
-                                        <span class="site-menu-arrow"></span>
-                                    </a>
+                            <!-- Navigation Starts Here-->
+                            <li class="site-menu-item ">
+                                <a href="dashboard.html" >
+                                    <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
+                                    <span class="site-menu-title">Dashboard</span>
+                                    <span class="site-menu-arrow"></span>
+                                </a>
 
-                                </li>
-                                <li class="site-menu-item ">
-                                    <a href="../../html/billpayment/billpay.html" >
-                                        <i class="site-menu-icon wb-payment" aria-hidden="true"></i>
-                                        <span class="site-menu-title">Bill Payment</span>
-                                        <span class="site-menu-arrow"></span>
-                                    </a>
+                            </li>
+                            <li class="site-menu-item ">
+                                <a href="billpayment.html" >
+                                    <i class="site-menu-icon wb-payment" aria-hidden="true"></i>
+                                    <span class="site-menu-title">Bill Payment</span>
+                                    <span class="site-menu-arrow"></span>
+                                </a>
 
-                                </li>
-                                <li class="site-menu-item ">
-                                    <a href="../../html/property-search/search.html" >
-                                        <i class="site-menu-icon wb-search" aria-hidden="true"></i>
-                                        <span class="site-menu-title">Property Search</span>
-                                        <span class="site-menu-arrow"></span>
-                                    </a>
+                            </li>
+                            <li class="site-menu-item ">
+                                <a href="support.html" >
+                                    <i class="site-menu-icon wb-help-circle" aria-hidden="true"></i>
+                                    <span class="site-menu-title">Support</span>
+                                    <span class="site-menu-arrow"></span>
+                                </a>
 
-                                </li>
+                            </li>
+                            <li class="site-menu-item ">
+                                <a href="reports.html" >
+                                    <i class="site-menu-icon wb-flag" aria-hidden="true"></i>
+                                    <span class="site-menu-title">Reports</span>
+                                    <span class="site-menu-arrow"></span>
+                                </a>
 
-                            </ul>
+                            </li>
+                            <li class="site-menu-item ">
+                                <a href="user.html" >
+                                    <i class="site-menu-icon wb-user" aria-hidden="true"></i>
+                                    <span class="site-menu-title">Users</span>
+                                    <span class="site-menu-arrow"></span>
+                                </a>
+
+                            </li>
 
                         </ul>
 
@@ -269,78 +309,93 @@
 
         <!-- Page -->
         <div class="page">
-            <div class="page-content">
-                <div class="page-header-bordered">
-                    <h4 class="page-title">Property Search</h4>
-                </div> 
-                <form>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <input id="geocomplete" type="text" class="form-control" name="" placeholder="Search...">
-                            <span class="input-group-btn">
-                                <button id="find" type="submit" class="btn btn-primary"><i class="icon wb-search" aria-hidden="true"></i></button>
-                            </span>
-                        </div>
+            <div class="page-header-bordered">
+                <h4 class="page-title">Users
+
+                    
+                </h4>
+              <div class="pull-right" style="margin-right: 30px; margin-top:-30px;">
+                        <div class="btn-group" data-toggle="buttons" role="group">
+                            <a href="#" class="btn btn-outline btn-default"> Administrators</a>
+                            <a href="#" class="btn btn-outline btn-default"> Clients</a> 
+                             
+
+
+                        </div> 
+
+
+
                     </div>
+            </div>
+            <div class="page-content">
+                <div class="row" data-plugin="matchHeight" data-by-row="true">
+                  
+                            
 
+                    <div class="col-xlg-3 col-md-12">  
+                        <div class="panel">
+                            <div class="panel-heading">
 
-                </form>
+                                <div class="panel-title">Lands Commission 
+                                    <a href="newuser.html" class=" btn btn-primary pull-right">Add New User</a>
+                                </div>
+                                
+                            </div>
+                            <div class="panel-body">
+                                <table class="table table-hover dataTable table-striped width-full" data-plugin="dataTable">
+                                    <thead>
+                                        <tr>
+                                            <th>User ID</th>
+                                            <th>Date of Reg.</th>
+                                            <th>Name</th>
+                                            <th>Department</th>
+                                            <th>Role</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                           <th>User ID</th>
+                                            <th>Date of Reg.</th>
+                                            <th>Name</th>
+                                            <th>Department</th>
+                                            <th>Role</th>
+                                            <th>Status</th> 
+                                            <th></th> 
 
-                <div class=" height-450 map_canvas"></div>
-                <div id="basic-search-results">
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                           <td></td>
+                                            <td></td>
+                                             <td></td>
+                                              <td></td>
+                                               <td></td>
+                                               <td><button  name="edituserbtn" class="btn btn-primary edituser" ><span class="fa fa-pencil"></span> Edit</button>  <button  name="deleteuser" class="btn btn-primary deleteuser" ><span class="fa fa-trash"></span> Delete</button></td>
+                                            
 
-                    <div class="panel">
-                        <div class="panel-heading">
-
-                            <h3 class="panel-title">Basic Search Results</h3>
-                        </div>
-                        <div class="panel-body">
-                            <table class="table table-hover  table-striped width-full"  id="basic-search">
-                                <thead>
-                                    <tr>
-                                        <th>Location</th>
-                                        <th>Route</th>
+                                        </tr>
+                                        
                                         
 
-                                        <th>Locality</th>
-
-
-                                        <th>Acreage</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
-
-
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    <tr>
-                                        <td><span data-geo="location"></span></td>
-                                        <td><span data-geo="route"></span></td>
+                                       
                                         
 
-                                        <td><span data-geo="locality"></span></td>
 
 
-                                        <td>100 by 400 </td>
-                                        <td>Available</td>
-                                        <td><button id="makepayment" type="submit" class="btn btn-primary">Make Payment to view details</button></td>
-
-                                    </tr>
-
-
-
-
-                                </tbody>
-                            </table>
-                        </div>
-                    </div> 
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div> 
+                    </div>
 
                 </div>
             </div>
         </div>
         <!-- End Page -->
-        <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+
 
 
         <!-- Footer -->
@@ -351,15 +406,13 @@
             </div>
         </footer>
 
-        <!-- Core  -->
-        <script src="../../assets/vendor/jquery/jquery.js"></script>
+       <script src="../../assets/vendor/jquery/jquery.js"></script>
         <script src="../../assets/vendor/bootstrap/bootstrap.js"></script>
         <script src="../../assets/vendor/animsition/jquery.animsition.js"></script>
         <script src="../../assets/vendor/asscroll/jquery-asScroll.js"></script>
         <script src="../../assets/vendor/mousewheel/jquery.mousewheel.js"></script>
         <script src="../../assets/vendor/asscrollable/jquery.asScrollable.all.js"></script>
         <script src="../../assets/vendor/ashoverscroll/jquery-asHoverScroll.js"></script>
-        <script src="../../assets/vendor/jquery-geocomplete/jquery.geocomplete.js"></script>
 
         <!-- Plugins -->
         <script src="../../assets/vendor/switchery/switchery.min.js"></script>
@@ -367,7 +420,13 @@
         <script src="../../assets/vendor/screenfull/screenfull.js"></script>
         <script src="../../assets/vendor/slidepanel/jquery-slidePanel.js"></script>
 
-
+        <script src="../../assets/vendor/datatables/jquery.dataTables.min.js"></script>
+        <script src="../../assets/vendor/datatables-fixedheader/dataTables.fixedHeader.js"></script>
+        <script src="../../assets/vendor/datatables-bootstrap/dataTables.bootstrap.js"></script>
+        <script src="../../assets/vendor/datatables-responsive/dataTables.responsive.js"></script>
+        <script src="../../assets/vendor/datatables-tabletools/dataTables.tableTools.js"></script>
+        <script src="../../assets/vendor/d3/d3.min.js"></script>
+        <script src="../../assets/vendor/c3/c3.min.js"></script>
 
         <!-- Scripts -->
         <script src="../../assets/js/core.js"></script>
@@ -384,35 +443,81 @@
         <script src="../../assets/js/components/animsition.js"></script>
         <script src="../../assets/js/components/slidepanel.js"></script>
         <script src="../../assets/js/components/switchery.js"></script>
-
-
+        <script src="../../assets/js/components/datatables.js"></script>
 
         <script>
-            $(function () {
-                var center = new google.maps.LatLng(5.605389, -0.187454);
+            (function (document, window, $) {
+                'use strict';
 
-                $("#geocomplete").geocomplete({
-                    map: ".map_canvas",
-                    types: ['establishment'],
-                    country: 'gh',
-                    details: "#basic-search",
-                    detailsAttribute: "data-geo"
+                var Site = window.Site;
+
+                $(document).ready(function ($) {
+                    Site.run();
                 });
+               // Example C3 Timeseries
+      // ---------------------
+      (function() {
+        var time_series_chart = c3.generate({
+          bindto: '#exampleC3TimeSeries',
+          data: {
+            x: 'x',
+            columns: [
+              ['x', '2013-01-01', '2013-01-02', '2013-01-03',
+                '2013-01-04', '2013-01-05', '2013-01-06'
+              ],
+              ['water', 80, 125, 100, 220, 80, 160],
+              ['electricity', 40, 85, 45, 155, 50, 65]
+            ]
+          },
+          color: {
+            pattern: [$.colors("primary", 600), $.colors("green", 600),
+              $.colors("red", 500)
+            ]
+          },
+          padding: {
+            right: 40
+          },
+          axis: {
+            x: {
+              type: 'timeseries',
+              tick: {
+                outer: false,
+                format: '%Y-%m-%d'
+              }
+            },
+            y: {
+              max: 300,
+              min: 0,
+              tick: {
+                outer: false,
+                count: 7,
+                values: [0, 50, 100, 150, 200, 250, 300]
+              }
+            }
+          },
+          grid: {
+            x: {
+              show: false
+            },
+            y: {
+              show: true
+            }
+          }
+        });
 
-                var map = $("#geocomplete").geocomplete("map");
-                $("#find").click(function () {
-                    $("#geocomplete").trigger("geocode");
-                    
-                });
+        setTimeout(function() {
+          time_series_chart.load({
+            columns: [
+              ['property rent', 210, 180, 260, 290, 250, 240]
+            ]
+          });
+        }, 1000);
+      })();
 
-                map.setCenter(center);
-                map.setZoom(12);
-
-
-
-            });
-           
+            })(document, window, jQuery);
         </script>
+
+
     </body>
 
 </html>

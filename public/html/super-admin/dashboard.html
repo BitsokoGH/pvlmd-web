@@ -29,6 +29,7 @@
         <link rel="stylesheet" href="../../assets/vendor/datatables-bootstrap/dataTables.bootstrap.css">
         <link rel="stylesheet" href="../../assets/vendor/datatables-fixedheader/dataTables.fixedHeader.css">
         <link rel="stylesheet" href="../../assets/vendor/datatables-responsive/dataTables.responsive.css">
+        <link rel="stylesheet" href="../../assets/vendor/c3/c3.css">
 
         <!-- Fonts -->
         <link rel="stylesheet" href="../../assets/fonts/web-icons/web-icons.min.css">
@@ -255,7 +256,7 @@
                         <ul class="site-menu">
                             <!-- Navigation Starts Here-->
                             <li class="site-menu-item ">
-                                <a href="../../html/dashboard/dashboard.html" >
+                                <a href="dashboard.html" >
                                     <i class="site-menu-icon wb-dashboard" aria-hidden="true"></i>
                                     <span class="site-menu-title">Dashboard</span>
                                     <span class="site-menu-arrow"></span>
@@ -263,17 +264,33 @@
 
                             </li>
                             <li class="site-menu-item ">
-                                <a href="../../html/billpayment/billpay.html" >
+                                <a href="billpayment.html" >
                                     <i class="site-menu-icon wb-payment" aria-hidden="true"></i>
                                     <span class="site-menu-title">Bill Payment</span>
                                     <span class="site-menu-arrow"></span>
                                 </a>
 
                             </li>
+                            <li class="site-menu-item">
+                                <a href="support.html">
+                                    <i class="site-menu-icon wb-help-circle" aria-hidden="true"></i>
+                                    <span class="site-menu-title">Support</span>
+                                    <span class="site-menu-arrow"></span>
+                                </a>
+
+                            </li>
                             <li class="site-menu-item ">
-                                <a href="../../html/property-search/search.html" >
-                                    <i class="site-menu-icon wb-search" aria-hidden="true"></i>
-                                    <span class="site-menu-title">Property Search</span>
+                                <a href="reports.html">
+                                    <i class="site-menu-icon wb-flag" aria-hidden="true"></i>
+                                    <span class="site-menu-title">Reports</span>
+                                    <span class="site-menu-arrow"></span>
+                                </a>
+
+                            </li>
+                            <li class="site-menu-item ">
+                                <a href="user.html" >
+                                    <i class="site-menu-icon wb-user" aria-hidden="true"></i>
+                                    <span class="site-menu-title">Users</span>
                                     <span class="site-menu-arrow"></span>
                                 </a>
 
@@ -309,7 +326,7 @@
                                     <div class="widget-content widget-radius padding-30 bg-brown-600 white">
                                         <div class="counter counter-lg counter-inverse text-left">
                                             <div class="counter-label margin-bottom-20">
-                                                <div>PROPERTY RENT</div>
+                                                <div>TOTAL RENT PAYMENTS</div>
 
                                             </div>
                                             <div class="counter-number-group margin-bottom-15">
@@ -323,12 +340,7 @@
                                                         <span class="sr-only">42%</span>
                                                     </div>
                                                 </div>
-                                                <div class="counter counter-sm text-left">
-                                                    <div class="counter-number-group">
-                                                        <span class="counter-number font-size-14">42%</span>
-                                                        <span class="counter-number-related font-size-14">HIGHER THAN LAST MONTH</span>
-                                                    </div>
-                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -342,7 +354,7 @@
                                     <div class="widget-content widget-radius padding-30 bg-red-600 white">
                                         <div class="counter counter-lg counter-inverse text-left">
                                             <div class="counter-label margin-bottom-20">
-                                                <div>ELECTRICITY</div>
+                                                <div>TOTAL ECG PAYMENTS</div>
 
                                             </div>
                                             <div class="counter-number-group margin-bottom-10">
@@ -356,12 +368,7 @@
                                                         <span class="sr-only">70%</span>
                                                     </div>
                                                 </div>
-                                                <div class="counter counter-sm text-left">
-                                                    <div class="counter-number-group">
-                                                        <span class="counter-number font-size-14">70%</span>
-                                                        <span class="counter-number-related font-size-14">HIGHER THAN LAST MONTH</span>
-                                                    </div>
-                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -374,7 +381,7 @@
                                     <div class="widget-content widget-radius padding-30 bg-blue-700 white">
                                         <div class="counter counter-lg counter-inverse text-left">
                                             <div class="counter-label margin-bottom-20">
-                                                <div>WATER</div>
+                                                <div>TOTAL GWCL PAYMENTS</div>
 
                                             </div>
                                             <div class="counter-number-group margin-bottom-10">
@@ -388,12 +395,7 @@
                                                         <span class="sr-only">70%</span>
                                                     </div>
                                                 </div>
-                                                <div class="counter counter-sm text-left">
-                                                    <div class="counter-number-group">
-                                                        <span class="counter-number font-size-14">70%</span>
-                                                        <span class="counter-number-related font-size-14">LOWER THAN LAST MONTH</span>
-                                                    </div>
-                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -402,78 +404,141 @@
                             </div>
                         </div>
                     </div>
+                    <hr/>
+
+                    <div class="col-xlg-3 col-md-12" style="border-top:1px solid #ddd; padding-top: 20px;">
+                        <div class="row height-full">
+                            <div class="col-xlg-12 col-md-4" style="height:50%;">
+                                <div class="panel" style="height:350px">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Rent
+                                            <span class="label label-primary pull-right">15/11/2015</span>
+                                        </h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div style="height:300px; margin-top:-10px; margin-left:-20px;" id="exampleC3Spline"></div>
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="col-xlg-12 col-md-4" style="height:50%;">
+                                <div class="panel" style="height:350px">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Users
+
+                                        </h3>
+                                    </div>
+                                    <div class="panel-body" style="font-size:11px !important">
+                                        <h6>Most Faithful Payee</h6>
+                                        <table class="table table-hover dataTable table-striped width-full">
+                                            <thead>
+                                                <tr>
+                                                    <th >Payee</th>
+                                                    <th class="text-right">Total Payments</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                <tr>
+                                                    <td>Michael Jones</td>
+                                                    <td class="text-right">GHS 1200</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Josephine </td>
+                                                    <td class="text-right">GHS 1000</td>
+
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                        <h6>Least Faithful Payee</h6>
+                                        <table class="table table-hover dataTable table-striped width-full">
+                                            <thead>
+                                                <tr>
+                                                    <th >Payee</th>
+                                                    <th class="text-right">Total Payments</th>
 
 
-                    <div class="col-xlg-3 col-md-12">  
-                        <div class="panel">
-                            <div class="panel-heading">
+                                                </tr>
+                                            </thead>
 
-                                <h3 class="panel-title">Bill Payment History</h3>
-                            </div>
-                            <div class="panel-body">
-                                <table class="table table-hover dataTable table-striped width-full" data-plugin="dataTable">
-                                    <thead>
-                                        <tr>
-                                            <th>Ref. No</th>
-                                            <th>Vendor</th>
-                                            <th>Payments</th>
-                                            <th>Date</th>
-
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Ref. No</th>
-                                            <th>Vendor</th>
-                                            <th>Payments</th>
-                                            <th>Date</th>
-
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <tr>
-                                            <td>0244</td>
-                                            <td>ECG</td>
-                                            <td>GHS 450</td>
-                                            <td>1 Jan 2015</td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>0534</td>
-                                            <td>GWCL</td>
-                                            <td>GHS 430</td>
-                                            <td>23 Apr 2015</td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>0634</td>
-                                            <td>ECG</td>
-                                            <td>GHS 350</td>
-                                            <td>10 Sep 2014</td>
-
-                                        </tr>
-
-                                        <tr>
-                                            <td>0834</td>
-                                            <td>Lands Commission</td>
-                                            <td>GHS 289</td>
-                                            <td>20 Feb 2014</td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>0934</td>
-                                            <td>Lands Commission</td>
-                                            <td>GHS 230</td>
-                                            <td> 22 Aug 2013</td>
-
-                                        </tr>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Michael Jones</td>
+                                                    <td class="text-right">GHS 1200</td>
 
 
+                                                </tr>
+                                                <tr>
+                                                    <td>Josephine </td>
+                                                    <td class="text-right">GHS 1000</td>
 
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div> 
+
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="col-xlg-12 col-md-4" style="height:50%;">
+                                <div class="panel" style="height:350px">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Support &AMP; Feedback
+
+                                        </h3>
+                                    </div>
+                                    <div class="panel-body" style="font-size:11px !important">
+
+                                        <table class="table table-hover dataTable table-striped width-full">
+                                            <thead>
+                                                <tr>
+                                                    <th >Date</th>
+                                                    <th class="text-right">Tickets</th>
+
+
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                <tr>
+                                                    <td>24<br/> Jun</td>
+                                                    <td class="text-right">
+                                                        <strong>It should work on tables</strong>
+                                                        - Michael J. Calkins</td>
+
+
+                                                </tr>
+                                                <tr>
+                                                    <td>20<br/> Jul</td>
+                                                    <td class="text-right"> <strong>If you look at utilities.less</strong>
+                                                        -  Shaun Luttin</td>
+
+
+                                                </tr>
+
+                                                <tr>
+                                                    <td>24<br/> Jun</td>
+                                                    <td class="text-right">
+                                                        <strong>It should work on tables</strong>
+                                                        - Michael J. Calkins</td>
+
+
+                                                </tr>
+                                                <tr>
+                                                    <td>20<br/> Jul</td>
+                                                    <td class="text-right"> <strong>If you look at utilities.less</strong>
+                                                        -  Shaun Luttin</td>
+
+
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+
                     </div>
                 </div>
             </div> 
@@ -510,6 +575,8 @@
         <script src="../../assets/vendor/datatables-bootstrap/dataTables.bootstrap.js"></script>
         <script src="../../assets/vendor/datatables-responsive/dataTables.responsive.js"></script>
         <script src="../../assets/vendor/datatables-tabletools/dataTables.tableTools.js"></script>
+        <script src="../../assets/vendor/d3/d3.min.js"></script>
+        <script src="../../assets/vendor/c3/c3.min.js"></script>
 
         <!-- Scripts -->
         <script src="../../assets/js/core.js"></script>
@@ -528,19 +595,59 @@
         <script src="../../assets/js/components/switchery.js"></script>
         <script src="../../assets/js/components/datatables.js"></script>
 
-       <script>
-    (function(document, window, $) {
-      'use strict';
+        <script>
+            (function (document, window, $) {
+                'use strict';
 
-      var Site = window.Site;
+                var Site = window.Site;
 
-      $(document).ready(function($) {
-        Site.run();
-      });
+                $(document).ready(function ($) {
+                    Site.run();
+                });
+                // Example C3 Spline
+                // -----------------
+                (function () {
+                    var spline_chart = c3.generate({
+                        bindto: '#exampleC3Spline',
+                        data: {
+                            columns: [
+                                ['Rent Paid', 100, 165, 140, 270, 200, 140, 220],
+                                ['Rent Arreas', 110, 80, 100, 85, 125, 90, 100]
+                            ],
+                            type: 'spline'
+                        },
+                        color: {
+                            pattern: [$.colors("primary", 600), $.colors("green", 600)]
+                        },
+                        axis: {
+                            x: {
+                                tick: {
+                                    outer: false
+                                }
+                            },
+                            y: {
+                                max: 300,
+                                min: 0,
+                                tick: {
+                                    outer: false,
+                                    count: 7,
+                                    values: [0, 50, 100, 150, 200, 250, 300]
+                                }
+                            }
+                        },
+                        grid: {
+                            x: {
+                                show: false
+                            },
+                            y: {
+                                show: true
+                            }
+                        }
+                    });
+                })();
 
-  
-    })(document, window, jQuery);
-  </script>
+            })(document, window, jQuery);
+        </script>
 
 
 
