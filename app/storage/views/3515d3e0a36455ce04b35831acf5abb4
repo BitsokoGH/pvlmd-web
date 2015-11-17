@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <h1>Dear, <?php echo $name; ?>!</h1>
+
+        <div> <p>Thank you for paying your bills. Below are the details of the payment</p>
+            <table border='0' width='94%'>
+                 
+                <tr>
+                    <td>Transaction Type</td>
+                    <td><?php echo $bill_type; ?></td>
+                </tr> 
+                <tr>
+                    <td>ID</td>
+                    <td><?php echo $property_id; ?></td>
+                </tr>
+                <tr>
+                    <td>Amount</td>
+                    <td><?php echo number_format($amount_paid); ?></td>
+                </tr>
+                <tr>
+                    <td>Date Paid</td>
+                    <td><?php echo date('D M d, Y H:i',strtotime($created_at)); ?></td>
+                </tr>
+                <tr>
+                    <td>Mode of Payment</td>
+                   
+                    <td><?php echo $payment_mode; ?></td>
+                </tr>
+
+            </table>
+           
+        </div>
+    </body>
+</html>

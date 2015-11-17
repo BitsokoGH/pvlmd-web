@@ -1,0 +1,84 @@
+<?php $__env->startSection('title'); ?>
+Dashboard
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+
+<div class="page-content">
+   <div class="row height-full">
+       <?php foreach($billsummary as $p=>$lc): ?>
+                            <div class="col-xlg-4 col-md-4" style="height:50%;">
+                                <!-- Panel Overall Sales -->
+                                <div class="widget widget-shadow">
+                                    <div class="widget-content widget-radius padding-30 bg-brown-600 white">
+                                        <div class="counter counter-lg counter-inverse text-left">
+                                            <div class="counter-label margin-bottom-20">
+                                                <div><?php echo $lc["name"]; ?></div>
+
+                                            </div>
+                                            <div class="counter-number-group margin-bottom-15">
+                                                <span class="counter-number-related">GHS</span>
+                                                <span class="counter-number"><?php echo number_format($lc["thismonth"]); ?></span>
+                                            </div>
+                                            <div class="counter-label">
+                                                <div class="progress progress-xs margin-bottom-10 bg-brown-800">
+                                                    <div class="progress-bar progress-bar-info bg-white" style="width: <?php echo $lc["percent"]; ?>%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="42" role="progressbar">
+                                                        <span class="sr-only"><?php echo $lc["percent"]; ?></span>
+                                                    </div>
+                                                </div>
+                                                <div class="counter counter-sm text-left">
+                                                    <div class="counter-number-group">
+                                                        <span class="counter-number font-size-14"><?php echo number_format($lc["percent"]); ?>%</span>
+                                                        <span class="counter-number-related font-size-14"><?php echo $lc["monthstatus"]; ?></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Panel Overall Sales -->
+                            </div>
+
+       <?php endforeach; ?>
+
+    </div>
+
+    <div class="row height-full" style="border-top: solid 1px #ccc">
+        <div class="col-xlg-4 col-md-4" style="height:50%;">
+            <h3>Rent <div class="" style="float: right"><?php echo @date('M Y'); ?></div></h3>
+            
+            <?php foreach($paid as $k=>$val): ?>
+            <div ><?php echo $k; ?> <span class="badge badge-dark"><?php echo number_format($val); ?></span></div>
+            <?php endforeach; ?>
+        </div>
+        <div class="col-xlg-4 col-md-4" style="height:50%;">
+             <h3>Payments <div class="" style="float: right"><?php echo @date('M Y'); ?></div></h3>
+             <table class="table table-hover dataTable table-striped width-full">
+                 <tr>
+                 <td>Payee</td>
+                 <td>Property</td>
+
+                 <td>Bill Type</td>
+                 <td>Amount</td>
+             </tr>
+             <?php foreach($recentpayment as $p=>$pay): ?>
+             <tr>
+                 <td><?php echo $pay->paid_for; ?></td>
+                 <td><?php echo $pay->property_id; ?></td>
+                 <td><?php echo strtoupper($pay->bill_type); ?></td>
+                 <td><?php echo number_format($pay->amount_paid); ?></td>
+             </tr>
+             <?php endforeach; ?>
+             </table>
+        </div>
+        <div class="col-xlg-4 col-md-4" style="height:50%;">
+            
+             <h3>Support <div class="" style="float: right"></div></h3>
+        </div>
+    </div></div>
+    
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('script'); ?>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

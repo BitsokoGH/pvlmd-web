@@ -1,10 +1,8 @@
-@extends('layout.noauth')
-
-@section('title')
+<?php $__env->startSection('title'); ?>
 Forgotten Password
-@stop
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
   
   <!-- Page -->
@@ -21,7 +19,7 @@ Forgotten Password
               <form method="post" role="form">
                   <div class="forgot-password">
                   <h4>Forgot Password ?</h4>
-                  @include('msg')
+                  <?php echo $__env->make('msg', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                 <p>Enter your email address or phone number and we'll send you instructions.</p>
                   </div>
         <div class="form-group">
@@ -34,7 +32,7 @@ Forgotten Password
             </div>
                <div class="panel-footer">
                    <p>Already have an account?</p>
-            <a href="{{URL::to('login')}}" class="btn btn-primary ">Login</a>
+            <a href="<?php echo URL::to('login'); ?>" class="btn btn-primary ">Login</a>
                
                    
                </div>
@@ -54,3 +52,5 @@ Forgotten Password
   </div>
   <!-- End Page -->
 @end
+
+<?php echo $__env->make('layout.noauth', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -24,12 +24,27 @@ Route::post('set-password', array('uses' => 'HomeController@doSetPassword'))->be
 Route::get('confirm-registration', array('uses' => 'HomeController@showConfirmRegistration'))->before('guest');
 Route::post('confirm-registration', array('uses' => 'HomeController@doConfirmAccount'))->before('guest');
 
+//Admin
+Route::resource('admin', 'AdminController');
+
+
+
+Route::get('dashboard', array('uses' => 'DashboardController@showAdmin'));
+Route::get('dashboard/{type}', array('uses' => 'DashboardController@showAdminByType'));
+Route::resource('bill', 'BillController');
+Route::resource('property', 'PropertyController');
+Route::get('propertyassign/{type}', array('uses' => 'PropertyController@showAssign'));
+Route::post('propertyassign', array('uses' => 'PropertyController@assign'));
+Route::get('propertysearch', array('uses' => 'UserController@searchUser'));
+
 
 
 //PROFILE
 Route::get('profile', array('uses' => 'ProfileController@showProfile'))->before('guest');
 Route::resource('profile/payment', 'PaymentOptionController');
+Route::resource('billpayment', 'BillPaymentController');
 
+Route::get('billpayment/process/{type}', array('uses' => 'BillPaymentController@showProcess'));
 Route::post('profile', array('uses' => 'HomeController@doConfirmAccount'))->before('guest');
 
 Route::match(array('GET', 'POST'),'/ok', function()

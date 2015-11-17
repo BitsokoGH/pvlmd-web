@@ -1,10 +1,9 @@
-@extends('layout.default')
+<?php $__env->startSection('title'); ?>
+Welcome  <?php echo $user->lastname; ?> <?php echo $user->firstname; ?>
 
-@section('title')
-Welcome  {{$user->lastname}} {{$user->firstname}}
-@stop
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 <!-- Page -->
 
 <div class="row" data-plugin="matchHeight" data-by-row="true">
@@ -22,7 +21,7 @@ Welcome  {{$user->lastname}} {{$user->firstname}}
                             </div>
                             <div class="counter-number-group margin-bottom-15">
                                 <span class="counter-number-related">GHS</span>
-                                <span class="counter-number">{{number_format($lc)}}</span>
+                                <span class="counter-number"><?php echo number_format($lc); ?></span>
                             </div>
                             <div class="counter-label">
                                 <div class="progress progress-xs margin-bottom-10 bg-brown-800">
@@ -139,15 +138,15 @@ Welcome  {{$user->lastname}} {{$user->firstname}}
                         </tr>
                     </tfoot>
                     <tbody
-                        @foreach($payments as $b=>$pay)
+                        <?php foreach($payments as $b=>$pay): ?>
                         <tr>
-                            <td>{{$pay->invoice_number}}</td>
-                            <td>{{strtoupper($pay->bill_type)}}</td>
+                            <td><?php echo $pay->invoice_number; ?></td>
+                            <td><?php echo strtoupper($pay->bill_type); ?></td>
 
-                            <td>{{number_format($pay->amount_paid)}}</td>
-                            <td>{{date('D M d, Y',strtotime($pay->created_at))}}</td>
+                            <td><?php echo number_format($pay->amount_paid); ?></td>
+                            <td><?php echo date('D M d, Y',strtotime($pay->created_at)); ?></td>
                         </tr>
-                        @endforeach
+                        <?php endforeach; ?>
 
 
 
@@ -174,17 +173,17 @@ Welcome  {{$user->lastname}} {{$user->firstname}}
                         <td>Date</td>
                         <td>Status</td>
                     </tr>
-                    @foreach($bills as $p=>$pay)
+                    <?php foreach($bills as $p=>$pay): ?>
                     <tr>
-                        <td>{{$pay->bill_item_id}}</td>
-                        <td>{{$pay->period}}</td>
+                        <td><?php echo $pay->bill_item_id; ?></td>
+                        <td><?php echo $pay->period; ?></td>
                         <td></td>
-                        <td>{{number_format($pay->amount)}}</td>
-                        <td>{{date('D M d, Y',strtotime($pay->created_at))}}</td>
-                        <td>{{strtoupper($pay->status)}}<?php ?></td>
+                        <td><?php echo number_format($pay->amount); ?></td>
+                        <td><?php echo date('D M d, Y',strtotime($pay->created_at)); ?></td>
+                        <td><?php echo strtoupper($pay->status); ?><?php ?></td>
 
                     </tr>
-                    @endforeach
+                    <?php endforeach; ?>
                 </table>
             </div>
         </div> 
@@ -209,18 +208,18 @@ Welcome  {{$user->lastname}} {{$user->firstname}}
                         <td>Assignment Status</td>
                
                     </tr>
-                    @foreach($properties as $p=>$property)
+                    <?php foreach($properties as $p=>$property): ?>
                     <tr>
-                        <td>{{$property->property_id}}</td>
- <td>{{$property->property->property_type}}</td>
-                        <td>{{$property->property->type_of_use}}</td>
-                        <td>{{$property->property->region}}</td>
-                        <td>{{$property->property->district}}</td>
-                        <td>{{$property->property->location}}</td>
-                        <td>{{$property->property->area}}</td>
-                        <td>{{$property->property->assignment_status}}</td>
+                        <td><?php echo $property->property_id; ?></td>
+ <td><?php echo $property->property->property_type; ?></td>
+                        <td><?php echo $property->property->type_of_use; ?></td>
+                        <td><?php echo $property->property->region; ?></td>
+                        <td><?php echo $property->property->district; ?></td>
+                        <td><?php echo $property->property->location; ?></td>
+                        <td><?php echo $property->property->area; ?></td>
+                        <td><?php echo $property->property->assignment_status; ?></td>
                        </tr>
-                    @endforeach
+                    <?php endforeach; ?>
                 </table>
             </div>
         </div> 
@@ -229,4 +228,5 @@ Welcome  {{$user->lastname}} {{$user->firstname}}
 </div>
 <!-- End Page -->
 
-@stop
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

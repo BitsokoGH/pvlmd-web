@@ -1,0 +1,53 @@
+<?php $__env->startSection('title'); ?>
+Dashboard
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+
+<div class="page-content">
+   <div class="row height-full">
+       
+
+    </div>
+
+    <div class="row height-full" style="border-top: solid 1px #ccc">
+        <div class="col-xlg-4 col-md-4" style="height:50%;">
+            <h3>Rent <div class="" style="float: right"><?php echo @date('M Y'); ?></div></h3>
+            
+            <?php foreach($paid as $k=>$val): ?>
+            <div ><?php echo $k; ?> <span class="badge badge-dark"><?php echo number_format($val); ?></span></div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <div>
+        <div class="" style="height:50%;">
+             <h3>Bill Payments <?php echo $billsummary["name"]; ?></h3>
+             <table class="table table-hover dataTable table-striped width-full">
+                 <tr>
+                 <td>Ref No</td>
+                 <td>Payee</td>
+                 <td>Property</td>
+                 <td>Amount</td>
+                 <td>Date</td>
+                 <td>Action</td>
+             </tr>
+             <?php foreach($recentpayment as $p=>$pay): ?>
+             <tr>
+                 <td><?php echo $pay->invoice_number; ?></td>
+                 <td><?php echo $pay->paid_for; ?></td>
+                 <td></td>
+                 <td><?php echo number_format($pay->amount_paid); ?></td>
+                 <td><?php echo date('D M d, Y',strtotime($pay->date_paid)); ?></td>
+                 <td><a href="#<?php echo $pay->invoice_number; ?>" class="label label-primary">view</a></td>
+             </tr>
+             <?php endforeach; ?>
+             </table>
+        </div>
+    
+    </div></div>
+    
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('script'); ?>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

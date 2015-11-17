@@ -1,0 +1,14 @@
+
+ <?php if(Session::has('flash_error')): ?>
+                <div class="alert alert-danger">
+                    <h4>Error Failed!</h4>
+                    <?php echo HTML::ul($errors->all()); ?>
+
+                </div>
+                <?php endif; ?>
+                <?php if(Session::has('error_message')): ?>
+                <div class="alert alert-danger"><?php echo Session::get('error_message'); ?></div>
+                <?php endif; ?>
+                <?php if(Session::has('message')): ?>
+                <div class="alert alert-info"><?php echo Session::get('message'); ?></div>
+                <?php endif; ?>

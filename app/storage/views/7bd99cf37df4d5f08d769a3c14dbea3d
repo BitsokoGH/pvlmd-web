@@ -1,10 +1,8 @@
-@extends('layout.noauth')
-
-@section('title')
+<?php $__env->startSection('title'); ?>
 Register
-@stop
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 
 <!-- Page -->
@@ -17,25 +15,25 @@ Register
                     <img class="brand-img" src="assets/images/logo.png" alt="...">
                     <h2 class="brand-text">Lands Commission</h2>
                 </div>
-              @include('msg')
+              <?php echo $__env->make('msg', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                 <form method="post" role="form">
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label class="sr-only" for="inputFname">First Name</label>
-                            <input type="text" class="form-control" value="{{Input::old('firstname')}}" id="inputFname" name="firstname" placeholder="First Name">
+                            <input type="text" class="form-control" value="<?php echo Input::old('firstname'); ?>" id="inputFname" name="firstname" placeholder="First Name">
                         </div>
                         <div class="form-group col-md-6">
                             <label class="sr-only" for="inputLname">Last Name</label>
-                            <input type="text" class="form-control" id="inputLname" name="lastname" placeholder="Last Name"  value="{{Input::old('lstname')}}" >
+                            <input type="text" class="form-control" id="inputLname" name="lastname" placeholder="Last Name"  value="<?php echo Input::old('lstname'); ?>" >
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="sr-only" for="inputPhone">Phone Number</label>
-                        <input type="text" class="form-control" id="inputPhone" name="phone" placeholder="Phone Number"  value="{{Input::old('phone')}}" >
+                        <input type="text" class="form-control" id="inputPhone" name="phone" placeholder="Phone Number"  value="<?php echo Input::old('phone'); ?>" >
                     </div>
                     <div class="form-group">
                         <label class="sr-only" for="inputEmail">Email</label>
-                        <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email"  value="{{Input::old('email')}}" >
+                        <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email"  value="<?php echo Input::old('email'); ?>" >
                     </div>
                     <div class="form-group">
                         <label class="sr-only" for="inputPassword">Password</label>
@@ -51,7 +49,7 @@ Register
                 </form>
             </div>
             <div class="panel-footer"><p>Already have an account?</p>
-                <a href="{{URL::to('login')}}" class="btn btn-primary ">Login</a></div>
+                <a href="<?php echo URL::to('login'); ?>" class="btn btn-primary ">Login</a></div>
         </div>
 
 
@@ -67,3 +65,5 @@ Register
     </div>
 </div>
 <!-- End Page -->
+
+<?php echo $__env->make('layout.noauth', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

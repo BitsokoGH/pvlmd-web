@@ -1,0 +1,105 @@
+<?php $__env->startSection('title'); ?>
+Bill Payment - <?php echo $user->lastname; ?> <?php echo $user->firstname; ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+
+<div class="page-content">
+    <div class="panel panel-bordered">
+        <div class="panel-heading">
+            <h3 class="panel-title">Property Rent Payments</h3>
+        </div>
+        <div class="panel-body">
+            <div class="col-xlg-3 col-md-3">
+                <div class="row height-full">
+                    <div class="col-xlg-12 col-md-4" >
+                        <img src="<?php echo asset('assets/images/'.$type.'.jpg'); ?>"  alt="<?php echo $name; ?>" class="center-block"/> 
+                        <div class="text-center"><?php echo $name; ?></div>
+                    </div>
+                    <div class="col-xlg-12 col-md-8" style="border-left:1px solid #e4eaec" >
+                      <?php echo Form::open(array('url'=> 'billpayment','method'=>'post')); ?>
+
+
+                            <div class="form-group">
+                                <label class="control-label">Select Property</label>
+                                <div >
+                                    <?php if($type=='lc'): ?>
+                                    <select class="form-control" name="property">
+                                        <option value=''>Select an option</option>
+                                        <?php foreach($properties as $p=>$property): ?>
+
+                                        <option value="<?php echo $property->property_id; ?>"><?php echo $property->property->area.' , '.$property->property->location; ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <?php endif; ?>
+                                    <?php if($type!='lc'): ?>
+                                    <input type="text" name="property" value="" placeholder="Meter No"  class="form-control"/>
+
+                                    <?php endif; ?>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Amount to be Paid</label>
+                                <div >
+                                    <input type="text" name="amount" value="" placeholder="Amount"  class="form-control"/>
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Select Payment Option</label>
+                                <div >
+                                    <select class="form-control" name="payment_option">
+                                        <option>Select an Option</option>
+                                        <?php foreach($wallet as $wal): ?>
+                                        <option value="<?php echo $wal->id; ?>"><?php echo $wal->mobile_provider; ?> = <?php echo $wal->wallet_no; ?></option>
+
+                                        <?php endforeach; ?>
+                                    </select>
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary" onclick="return confirm('Would you like to make this payment')">Make Payment</button>
+                            </div>
+  <input type="hidden" value="<?php echo $type; ?>" name="bill_type" />
+                         <?php echo Form::close(); ?>
+
+                    </div>
+
+                </div></div>
+
+            <div class="col-xlg-8 col-md-8">
+                 <?php if($type=='lc'): ?>
+                <table class="table table-hover dataTable table-striped width-full">
+                    <tr>
+                        <th>Property</th>
+                        <th>Amount Due</th>
+
+                    </tr>
+                    <?php foreach($owe as $propertyAmt): ?>
+                    <tr>
+                        <td><?php echo $propertyAmt["property"]; ?></td>
+                        <td><?php echo $propertyAmt["amt"]; ?></td>
+
+                    </tr>
+                    <?php endforeach; ?>
+                </table>
+                 <?php endif; ?>
+            </div>
+        </div>
+    </div>   
+
+
+
+
+</div>
+
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('script'); ?>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -29,6 +29,13 @@ class UserController extends BaseController {
         return View::make('devices.show', array('device' => $device, 'status' => $this->status, 'types' => $this->types, 'users' => $this->users));
     }
 
+    public function index(){
+          $subs = DB::table('user_account')
+                ->orderBy('created_at', 'DESC')
+                ->paginate(25);
+        return View::make('user.index', compact('subs'));
+        
+    }
     public function create() {
         return View::make('devices.create', array('status' => $this->status, 'types' => $this->types, 'users' => $this->users, 'region' => $this->region));
     }
@@ -155,7 +162,7 @@ class UserController extends BaseController {
         $token = new Token;
         $token->token_key = $key;
         $token->token_value = Hash::make(date('YmdHis') . "HashKey");
-        $token->expiry_date = \Carbon\Carbon::now()->addDay(1);
+        $token->expiry_date = DashboardController::addToDate("+5", "Day", date('Y-m-d'));
         $token->created_at = \Carbon\Carbon::now();
         $token->save();
 
@@ -178,7 +185,30 @@ class UserController extends BaseController {
     
     public function  showProfile(){
         
-        return View::make('user.profile', array('user' => Auth::user()));
+        return View::make('user.profile');
     }
 
+    
+    
+    public function searchUser(){
+        $itm="<table class='table table-hover dataTable table-striped width-full'><tr>"
+                . "<td></td>"
+                . "<td>Name</td>"
+                . "<td>Details</td></tr>";
+        $q=Input::get("q");
+         $rawResult = (array) DB::select("select * from user_account where (firstname like '%$q%' or  lastname like '%$q%' or email like '%$q%') and role='public' ");
+        $users = User::hydrate($rawResult);
+       
+        foreach($users as $k=>$user){
+            $itm.='<tr>';
+            $itm.='<td><input type="radio"  name="user"   value="'.$user->id.'"/></td>';
+            $itm.='<td>'.$user->getName().'</td>';
+            $itm.='<td>'.$user->email.'</td>';
+            $itm.='</tr>';
+        }
+        
+        $itm.='</table>';
+//        echo $itm;
+        return $itm;
+    }
 }

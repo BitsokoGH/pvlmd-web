@@ -1,0 +1,46 @@
+<?php $__env->startSection('title'); ?>
+Bills
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+
+<div class="page-content">
+   <div class="row height-full">
+       
+
+    </div>
+
+    
+    <div>
+        <div class="" style="height:50%;">
+             <h3>Bill Payments </h3>
+             <table class="table table-hover dataTable table-striped width-full">
+                 <tr>
+                 <td>Ref No</td>
+                 <td>Payee</td>
+                 <td>Property</td>
+                 <td>Amount</td>
+                 <td>Date</td>
+                 <td>Status</td>
+             </tr>
+             <?php foreach($bills as $p=>$pay): ?>
+             <tr>
+                 <td><?php echo $pay->bill_item_id; ?></td>
+                 <td><?php echo $pay->period; ?></td>
+                 <td></td>
+                 <td><?php echo number_format($pay->amount); ?></td>
+                 <td><?php echo date('D M d, Y',strtotime($pay->created_at)); ?></td>
+                 <td><?php echo strtoupper($pay->status); ?><?php  ?></td>
+        
+             </tr>
+             <?php endforeach; ?>
+             </table>
+        </div>
+    
+    </div></div>
+    
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('script'); ?>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,47 @@
+<?php $__env->startSection('title'); ?>
+<?php echo $title; ?>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+  <!-- Page -->
+  <div class="page animsition vertical-align text-center" data-animsition-in="fade-in"
+  data-animsition-out="fade-out">>
+    <div class="page-content vertical-align-middle">
+	   <div class="panel panel-bordered">
+            <div class="panel-body">
+             <div class="brand">
+        <img class="brand-img" src="../assets/images/logo.png" alt="...">
+        <h2 class="brand-text">Lands Commission</h2>
+      </div>
+               
+               <form>
+                  <div class="forgot-password">
+                  <h4><?php echo $title; ?></h4>
+                  <?php echo $__env->make('msg', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                <p><?php echo $content; ?><p>
+                  </div>
+       </form>
+            </div>
+               <div class="panel-footer">
+                   <p>Already Registered</p>
+            <a href="<?php echo URL::to('login'); ?>" class="btn btn-primary ">Login</a>
+               </div>
+          </div>
+      
+      
+      
+      
+      
+      <footer class="page-copyright">
+        
+        <p>© Copyright Bitsoko 2015. All right reserved.</p>
+        
+        
+      </footer>
+    </div>
+  </div>
+  <!-- End Page -->
+
+@end
+<?php echo $__env->make('layout.noauth', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

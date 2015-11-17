@@ -1,10 +1,8 @@
-@extends('layout.noauth')
-
-@section('title')
+<?php $__env->startSection('title'); ?>
 Set Password
-@stop
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 
 <!-- Page -->
@@ -17,10 +15,10 @@ Set Password
                     <img class="brand-img" src="assets/images/logo.png" alt="...">
                     <h2 class="brand-text">Lands Commission</h2>
                     <form method="post" action="set-password">
-                        @include('msg')
+                        <?php echo $__env->make('msg', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                         <div class="form-group">
                             <label class="sr-only" for="inputEmail">Email</label>
-                            <input type="email" class="form-control" readonly="readonly" id="inputEmail" name="email" placeholder="Email" value="{{$user->getName()}}">
+                            <input type="email" class="form-control" readonly="readonly" id="inputEmail" name="email" placeholder="Email" value="<?php echo $user->getName(); ?>">
                         </div>
                         <div class="form-group">
                             <label class="sr-only" for="inputPassword">Password</label>
@@ -33,13 +31,13 @@ Set Password
                                    placeholder="Confirm Password">
                         </div>
                         <button type="submit" class="btn btn-primary pull-left">Set Password</button>
-   <input type="hidden" name="u" value="{{$user->id}}" />
-            <input type="hidden" name="t" value="{{$token->id}}" />
+   <input type="hidden" name="u" value="<?php echo $user->id; ?>" />
+            <input type="hidden" name="t" value="<?php echo $token->id; ?>" />
                 </form> 
                 </div>   
             </div>
             <div class="panel-footer"><p>Already have an account?</p>
-                    <a href="{{URL::to('login')}}" class="btn btn-primary ">Login</a></div>
+                    <a href="<?php echo URL::to('login'); ?>" class="btn btn-primary ">Login</a></div>
             </div>
          
 
@@ -58,3 +56,4 @@ Set Password
     <!-- End Page -->
     
 @end
+<?php echo $__env->make('layout.noauth', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

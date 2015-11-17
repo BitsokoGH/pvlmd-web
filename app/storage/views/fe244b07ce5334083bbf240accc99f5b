@@ -1,10 +1,8 @@
-@extends('layout.noauth')
-
-@section('title')
+<?php $__env->startSection('title'); ?>
 Login New 
-@stop
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <div class="page animsition vertical-align text-center" data-animsition-in="fade-in"
      data-animsition-out="fade-out">>
@@ -15,7 +13,7 @@ Login New
                     <img class="brand-img" src="assets/images/logo.png" alt="...">
                     <h2 class="brand-text">Lands Commission</h2>
                 </div>
-               @include('msg')
+               <?php echo $__env->make('msg', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
                 <form method="post" >
 
                     <div class="form-group">
@@ -32,13 +30,13 @@ Login New
                             <input type="checkbox" id="inputCheckbox" name="checkbox">
                             <label for="inputCheckbox">Remember me</label>
                         </div>
-                        <a class="pull-right" href="{{URL::to('forgot-password')}}">Forgot password?</a>
+                        <a class="pull-right" href="<?php echo URL::to('forgot-password'); ?>">Forgot password?</a>
                     </div>
                     <button type="submit" class="btn btn-primary pull-right">Login</button>
                 </form>
             </div>
             <div class="panel-footer"><p>-Don’t have an account?</p>
-                <a href="{{URL::to('register')}}" class="btn btn-primary ">Create Account</a></div>
+                <a href="<?php echo URL::to('register'); ?>" class="btn btn-primary ">Create Account</a></div>
         </div>
 
 
@@ -53,4 +51,6 @@ Login New
         </footer>
     </div>
 </div>
-@stop
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layout.noauth', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
