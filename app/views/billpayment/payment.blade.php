@@ -6,9 +6,10 @@ Payment - {{$user->lastname}} {{$user->firstname}}
 
 @section('content')
 
-<div class="page-content">
 
+<div class="row" data-plugin="matchHeight" data-by-row="true">
 
+    
     <div class="col-xlg-12 col-md-12">
         <div class="row height-full">
             
@@ -22,8 +23,12 @@ Payment - {{$user->lastname}} {{$user->firstname}}
                 </div>
             </div>
            @endforeach
-        </div>
+        </div></div>
 
+
+ <div class="col-xlg-12 col-md-12">       
+<div class="panel ">
+  <div class="panel-body">
 
         <table class="table table-hover dataTable table-striped width-full" data-plugin="dataTable">
             <thead>
@@ -35,15 +40,7 @@ Payment - {{$user->lastname}} {{$user->firstname}}
 
                 </tr>
             </thead>
-            <tfoot>
-                <tr>
-                    <th>Ref. No</th>
-                    <th>Vendor</th>
-                    <th>Payments</th>
-                    <th>Date</th>
-
-                </tr>
-            </tfoot>
+           
             <tbody
                 @foreach($payments as $b=>$pay)
                 <tr>
@@ -61,8 +58,8 @@ Payment - {{$user->lastname}} {{$user->firstname}}
             </tbody>
         </table>
 </div>
-
-
+</div>
+</div>
 
 </div>
 @stop
